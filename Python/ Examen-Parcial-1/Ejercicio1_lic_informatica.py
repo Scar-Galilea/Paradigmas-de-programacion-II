@@ -30,22 +30,22 @@ Número_inicial = 1
 #Ciclo while para iterar desde 1 hasta el número ingresado por el usuario.
 while Número_inicial <=  Número_final:
 
-#Condición para múltiplos de 3 y 5: imprime "Licenciatura en Informática" y hace salto de línea.
+        #Condición para múltiplos de 3 y 5: imprime "Licenciatura en Informática" y hace salto de línea.
         if Número_inicial % 3 == 0 and Número_inicial % 5 == 0:
             print("Licenciatura en informática")
 
-#Condición para múltiplos de solo 3: imprime "Licenciatura".
+        #Condición para múltiplos de solo 3: imprime "Licenciatura".
         elif Número_inicial %3 == 0:
             print("Licenciatura,", end = " ")
 
-#Condición para múltiplos de solo 5: imprime "Informática".
+        #Condición para múltiplos de solo 5: imprime "Informática".
         elif Número_inicial % 5 == 0:
             print("Informatica,", end = " ")
 
-#En caso de que el número no sea múltiplo de 3 ni de 5, lo imprime normalmente
+        #En caso de que el número no sea múltiplo de 3 ni de 5, lo imprime normalmente.
         else:
             print(Número_inicial, end = ", ")
-#En caso de que el número no sea múltiplo de 3 ni de 5, lo imprime normalmente
+        #En caso de que el número no sea múltiplo de 3 ni de 5, lo imprime normalmente.
         Número_inicial += 1
 print()
 print("Fin de cuenta.")
