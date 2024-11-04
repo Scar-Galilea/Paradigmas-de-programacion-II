@@ -1,7 +1,7 @@
 #Galilea Peralta Contreras.
 #02 de noviembre de 2024.
 #Descripción:
-## Programa para mostrar una cuenta hasta un número ingresado por el usuario, reemplazando ciertos números con palabras específicas.
+#Programa para mostrar una cuenta hasta un número ingresado por el usuario, reemplazando ciertos números con palabras específicas.
 
 """
 Este programa imprime en consola los números, separados por comas, del 1 hasta un número ingresado por el usuario.

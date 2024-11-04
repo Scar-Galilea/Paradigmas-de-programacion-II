@@ -1,7 +1,7 @@
 #Galilea Peralta Contreras.
 #03 de noviembre de 2024.
 #Descripción:
-## Programa para mostrar una cuenta hasta un número ingresado por el usuario, reemplazando ciertos números con palabras específicas.
+#Programa para calcular el área y el perímetro de un rectángulo o círculo según la opción seleccionada por el usuario.
 
 """
 Este programa determina el área y el perímetro de un rectángulo o de un círculo.
@@ -26,9 +26,10 @@ d) Imprima el resultado en la consola. Nota: muestre únicamente 3 decimales en 
 
 e) Repita el menú hasta salir.
 """
-
+# Definimos un contador para controlar el ciclo.
 Contador_1 = 1
 while Contador_1 != 0:
+    # Muestra el menú de opciones.
     print("*** Programa que calcula el área y el perímetro **+")
     print("1) Calcular el área de un rectángulo.")
     print("2) Calcular el perímetro de un rectángulo.")
@@ -41,42 +42,50 @@ while Contador_1 != 0:
 
     if Opcion != 0:
         if Opcion == 1:
+            #Opción 1: Calcular el área de un rectángulo.
             print()
             Base = float(input("Ingrese la base: "))
             Altura = float(input("Ingrese la altura: "))
             Area = Base * Altura
             print()
-            print(f"El area es: {Area:.3f}")
+            #Fórmula para calcular área.
+            print(f"El área es: {Area:.3f}")
             print("-----------------------------------")
             print()
         elif Opcion == 2:
+            #Opción 2: Calcular el perímetro de un rectángulo.
             print()
             Base = float(input("Ingrese la base: "))
             Altura = float(input("Ingrese la altura: "))
+            #Fórmula para calcular perímetro.
             Perimetro = (2 * Altura) + (2 * Base)
             print()
-            print(f"El perimetro es: {Perimetro:.3f}")
+            print(f"El perímetro es: {Perimetro:.3f}")
             print("------------------------------------")
             print()
         elif Opcion == 3:
+            #Opción 3: Calcular el área de un círculo.
             print()
             Radio = float(input("Ingrese la radio: "))
             Area = 3.1416 * (Radio * Radio)
             print()
-            print(f"El area es: {Area:.3f}")
+            #Fórmula para calcular área.
+            print(f"El área es: {Area:.3f}")
             print("-----------------------------------")
             print()
         elif Opcion == 4:
+            #Opción 4: Calcular el perímetro de un círculo.
             print()
             Radio = float(input("Ingrese la radio: "))
+            #Fórmula para calcular perímetro.
             Perimetro = 2 * 3.1416 * Radio
-            print(f"El perimetro es: {Perimetro:.3f}")
-            print(f"El perimetro es: {Perimetro:.3f}")
+            print(f"El perímetro es: {Perimetro:.3f}")
+            print(f"El perímetro es: {Perimetro:.3f}")
             print("-----------------------------------")
             print()
         else:
             print()
-            print("Opcion invalida")
+            print("Opción inválida")
             print("-----------------------------------")
             print()
 print()
