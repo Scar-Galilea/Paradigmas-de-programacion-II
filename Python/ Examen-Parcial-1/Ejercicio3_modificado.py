@@ -32,7 +32,7 @@ Victorias_del_jugador = 0
 Empates = 0
 Victorias_del_CPU = 0
 
-while Contador_1 != 0:
+while Contador_1 != "0":
     print("*** Juego de piedra, papel o tijera. **+")
     print(f"Victorias del jugador: {Victorias_del_jugador}, empates: {Empates} y victorias del CPU: {Victorias_del_CPU}  ")
     print("     1) Piedra.")
@@ -89,7 +89,7 @@ while Contador_1 != 0:
             print()
         elif Opcion == "papel" and Opcion_del_CPU == 3:
             print()
-            print(f"Jugador: {papel}. CPU: tijera. El ganador es el jugador.")
+            print(f"Jugador: {Opcion}. CPU: tijera. El ganador es el jugador.")
             Victorias_del_jugador += 1
             print("------------------------------------")
             print()

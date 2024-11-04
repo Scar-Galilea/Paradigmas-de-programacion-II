@@ -24,23 +24,24 @@ from random import randint  # Importamos la función randint para generar el nú
 Intentos = 1 # Contador de intentos.
 Numero_adivinar =  randint(1, 100)
 
-print("     1) Facil.")
-print("     2) Mediano.")
-print("     3) Dificultad")
-Dificultad = int(input("Ingrese la dificultad: "))
+print("[F] 10 intentos y números 1-50.")
+print("[M] 5 intentos y números 1-100. ")
+print("[D] 4 intentos y números 1-110.")
 
 Contador = 0;
 
 while Contador != 1:
-    if Dificultad == 1:
+    Dificultad = input("Ingrese la dificultad: ")
+    Dificultad = Dificultad.lower()
+    if Dificultad == "f":
         Numero_de_final = 10
         Numero_adivinar =  randint(1, 50)
         Contador = 1
-    elif Dificultad == 2:
+    elif Dificultad == "m":
         Numero_de_final = 5
         Numero_adivinar =  randint(1, 100)
         Contador = 1
-    elif Dificultad == 3:
+    elif Dificultad == "d":
         Numero_de_final = 4
         Numero_adivinar =  randint(1, 110)
         Contador = 1
@@ -53,13 +54,13 @@ while Intentos <= Numero_de_final:
     print(f"Número de intentos: {Intentos}", end = " ")
 
     # Solicita al usuario que ingrese un número
-    Numero_del_usuario = int(input("Ingresa un número (1-100): "))
+    Numero_del_usuario = int(input("Ingresa un número: "))
 
     # Verifica si el número del usuario coincide con el número a adivinar.
     if Numero_adivinar == Numero_del_usuario:
         print()
         print(f"¡Felicidades!, adivinaste en {Intentos} intentos.")
-        Intentos = 7 #Finaliza el bucle si el usuario adivina correctamente.
+        Intentos = Numero_de_final
     elif Numero_del_usuario < Numero_adivinar :
         print()
         print("El número a adivinar es mayor.") #Indicación de que el número es mayor.
