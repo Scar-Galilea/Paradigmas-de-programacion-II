@@ -48,7 +48,7 @@ while Intentos <= 5 : # Bucle de intentos limitados a un máximo de 5.
         print()
 
     if Intentos == 6: #Este if funciona para verificar si el usuario dio 5 intentos.
-    #Ya que al finalizar una de las opciones se le sumará 1. por eso lo compara coon 6.
+    #Ya que al finalizar una de las opciones se le sumará 1. por eso lo dará  6.
         print("Perdiste. El número era: ",Numero_adivinar)
 
 
