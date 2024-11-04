@@ -22,9 +22,33 @@ from random import randint  # Importamos la función randint para generar el nú
 # Inicialización de variables.
 
 Intentos = 1 # Contador de intentos.
-Numero_adivinar =  randint(1, 100)  # La CPU elige un número aleatorio entre 1 y 100.
+Numero_adivinar =  randint(1, 100)
 
-while Intentos <= 5 : # Bucle de intentos limitados a un máximo de 5.
+print("     1) Facil.")
+print("     2) Mediano.")
+print("     3) Dificultad")
+Dificultad = int(input("Ingrese la dificultad: "))
+
+Contador = 0;
+
+while Contador != 1:
+    if Dificultad == 1:
+        Numero_de_final = 10
+        Numero_adivinar =  randint(1, 50)
+        Contador = 1
+    elif Dificultad == 2:
+        Numero_de_final = 5
+        Numero_adivinar =  randint(1, 100)
+        Contador = 1
+    elif Dificultad == 3:
+        Numero_de_final = 4
+        Numero_adivinar =  randint(1, 110)
+        Contador = 1
+    else:
+        print("Dificultad no reconocida, vuelva intentarlo")
+        Contador = 0
+print()
+while Intentos <= Numero_de_final:
     print("*** Juego del adivinador. **+")
     print(f"Número de intentos: {Intentos}", end = " ")
 
@@ -47,9 +71,8 @@ while Intentos <= 5 : # Bucle de intentos limitados a un máximo de 5.
         Intentos += 1
         print()
 
-    if Intentos == 6: #Este if funciona para verificar si el usuario dio 5 intentos.
-    #Ya que al finalizar una de las opciones se le sumará 1. por eso lo dará  6.
-        print("Perdiste. El número era: ",Numero_adivinar)
+if Numero_adivinar != Numero_del_usuario:
+    print("Perdiste. El número era: ",Numero_adivinar)
 
 
 print()
