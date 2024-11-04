@@ -31,7 +31,7 @@ Contador_1 = 1
 while Contador_1 != 0:
     print("*** Programa que calcula el área y el perímetro **+")
     print("1) Calcular el área de un rectángulo.")
-    print("2) Calcular el perímetro de un rectángulo..")
+    print("2) Calcular el perímetro de un rectángulo.")
     print("3) Calcular el área de un círculo.")
     print("4)  Calcular el perímetro de un círculo.")
     print("0) Salir")
