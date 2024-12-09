@@ -1,6 +1,7 @@
 #Galilea Peralta Contreras.
 #07 de diciembre del 2024.
 #Descripción:
+#Este programa es un test del sombrero seleccionador de Harry Potter.
 
 """
 Instrucciones:
@@ -80,9 +81,9 @@ def Menu():
     Opcion = int(input("Ingrese la opción: "))
     return Opcion
 
-
+#Función para mostrar las opciones de respuesta y devolver la selección del usuario.
 def Respuestas(Conjunto):
-    R1, R2, R3, R4= Conjunto
+    R1, R2, R3, R4 = Conjunto #Desempaquetar las respuestas del conjunto.
     print(f"    1) {R1}")
     print(f"    2) {R2}")
     print(f"    3) {R3}")
@@ -107,6 +108,7 @@ def Respuestas(Conjunto):
 
 Opcion = None
 
+#Definir respuestas de cada casa por pregunta.
 Gryffindor = ("Ordinario.","Te extraña, pero sonríe.","Gloria."," Valiente.","La fuerza.")
 Slytherin = ("Ignorante.","Pide más historias sobre tus aventuras.","Sabiduría.","Ambicioso.","La astucia.")
 Hufflepuff = ("Cobarde.","Piensa con admiración tus logros.","Amor.","Leal","La paciencia.")
@@ -118,6 +120,7 @@ Conjunto_3 = set()
 Conjunto_4 = set()
 Conjunto_5 = set()
 
+#Crear conjuntos para cada pregunta con opciones mezcladas.
 Conjunto_1 = {Gryffindor[0],Slytherin[0],Hufflepuff[0],Ravenclaw[0]}
 Conjunto_2 = {Gryffindor[1],Slytherin[1],Hufflepuff[1],Ravenclaw[1]}
 Conjunto_3 = {Gryffindor[2],Slytherin[2],Hufflepuff[2],Ravenclaw[2]}
@@ -126,6 +129,7 @@ Conjunto_5 = {Gryffindor[4],Slytherin[4],Hufflepuff[4],Ravenclaw[4]}
 
 Respuesta = [Conjunto_1,Conjunto_2,Conjunto_3,Conjunto_4,Conjunto_5]
 
+#Lista de preguntas.
 Preguntas = ['a) ¿Cuál de las siguientes opciones odiarías más que la gente te llamara?','Después de tu muerte ¿qué es lo que más le gustaría que hiciera la gente cuando escuche su nombre?','c)Dada la opción, preferirías inventar una poción que garantizara','d) ¿Cómo te definirías en una sola palabra?','c)¿Qué cualidad te describe mejor?']
 
 Puntos_G = 0
@@ -133,16 +137,18 @@ Puntos_S = 0
 Puntos_H = 0
 Puntos_R = 0
 
-
+#Ciclo principal del programa.
 while Opcion != 0:
     Opcion = Menu() #Muestra el menú y obtiene la opción del usuario.
     if Opcion == 0: #Salir del programa.
 
         print("Fin del programa.")
     elif Opcion == 1:
+        #Inicializar contadores para cada casa.
         Seleccion = ['0','0','0','0','0']
 
         Posicion = 0
+        #Realizar preguntas y capturar respuestas.
         while Posicion < 5:
             while Seleccion[Posicion] == '0':
                 print()
@@ -151,9 +157,8 @@ while Opcion != 0:
                 Seleccion.insert(Posicion, Respuestas(Respuesta[Posicion]))
             Posicion += 1
 
-
-
         Posicion = 0
+        #Sumar puntos según la respuesta seleccionada.
         while Posicion < 5:
             if Seleccion[Posicion] == Gryffindor[Posicion]:
                 Puntos_G += 1
@@ -165,6 +170,7 @@ while Opcion != 0:
                 Puntos_R += 1
             Posicion += 1
 
+        #Determinar la casa con más puntos.
         if Puntos_G > Puntos_S and Puntos_G > Puntos_H and Puntos_G > Puntos_R:
             print("Tu casa es: Gryffindor.")
         elif Puntos_S > Puntos_G and Puntos_S > Puntos_H and Puntos_G > Puntos_R:
