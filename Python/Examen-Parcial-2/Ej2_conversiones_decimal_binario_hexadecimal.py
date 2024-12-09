@@ -40,53 +40,97 @@ def Menu():
     return Opcion
 
 def Decimal_a_binario_y_hexadecimal(Decimal):
-
-
-    Numero_b = Decimal
-    Numero_h = Decimal
-    Acumulador_binario = ""
-    Acumulador_hexadecimal = ""
-    Tupla_b_h = (1,2)
-    while Numero_b // 2 != 0:
-        Acumulador_binario = str(Numero_b % 2) + Acumulador_binario
-        Numero_b = Numero_b // 2
-
-    while Numero_h // 16 != 0:
-        Acumulador_hexadecimal = str(Numero_h % 16) + Acumulador_hexadecimal
-        Numero_h = Numero_h // 16
-
-
-
-    print(str(Numero_b)+Acumulador_binario)
-    print(str(Numero_h) + Acumulador_hexadecimal)
-
+    Tupla_b_h = (decimal_a_binario(Decimal),decimal_a_hexadecimal(Decimal))
     return Tupla_b_h
 
 def Binario_a_decimal_y_hexadecimal(Binario):
-    Tupla_d_h = (1,2)
+    Binario = str(Binario)
+    Acumulador_decimal = 0
+
+    Total = (len(Binario)) - 1
+    for i in Binario:
+        Acumulador_decimal = (2 ** Total ) * int(i) + Acumulador_decimal
+        Total -= 1
+    Tupla_d_h = (Acumulador_decimal,decimal_a_hexadecimal(Acumulador_decimal))
     return Tupla_d_h
+
 def Hexadecimal_a_decimal_y_binario(Hexadecimal):
-    Tupla_d_b = (1,2)
+    Hexadecimal = str(Hexadecimal)
+    Acumulador_decimal = 0
+    print(Hexadecimal)
+    Total = (len(Hexadecimal)) - 1
+    for i in Hexadecimal:
+        Acumulador_decimal = (16 ** Total) * int(Convertir_hexadecimal_a_numero(i)) + Acumulador_decimal
+        Total -= 1
+
+    Tupla_d_b = Acumulador_decimal,decimal_a_binario(Acumulador_decimal)
+
     return Tupla_d_b
 
+def Convertidor_hexadecimal(Numero):
+    Numero = str(Numero)
+    Diccionario_hexadecimal = {('1'): '1',
+                               ('2'): '2',
+                               ('3'): '3',
+                               ('4'): '4',
+                               ('5'): '5',
+                               ('6'): '6',
+                               ('7'): '7',
+                               ('8'): '8',
+                               ('9'): '9',
+                               ('10'): 'A',
+                               ('11'): 'B',
+                               ('12'): 'C',
+                               ('13'): 'D',
+                               ('14'): 'E',
+                               ('15'): 'F',
+                                ('0'): '0'}
+
+    Numero = str(Diccionario_hexadecimal.get(Numero))
+    return Numero
+def  Convertir_hexadecimal_a_numero(Numero):
+    Numero = str(Numero)
+    Diccionario_hexadecimal = {('1'): '1',
+                               ('2'): '2',
+                               ('3'): '3',
+                               ('4'): '4',
+                               ('5'): '5',
+                               ('6'): '6',
+                               ('7'): '7',
+                               ('8'): '8',
+                               ('9'): '9',
+                               ('A'): '10',
+                               ('B'): '11',
+                               ('C'): '12',
+                               ('D'): '13',
+                               ('E'): '14',
+                               ('F'): '15',
+                               ('0'): '0'}
+
+    Numero = str(Diccionario_hexadecimal.get(Numero))
+    return Numero
+
+
+def decimal_a_hexadecimal(Numero_h):
+    Acumulador_hexadecimal = ""
+
+    while Numero_h // 16 != 0:
+        Convertidor = Convertidor_hexadecimal((Numero_h % 16))
+        Acumulador_hexadecimal = Convertidor + Acumulador_hexadecimal
+        Numero_h = Numero_h // 16
+
+    Convertidor = Convertidor_hexadecimal(Numero_h)
+    return Convertidor + Acumulador_hexadecimal
+
+def decimal_a_binario(Numero_b):
+    Acumulador_binario = ""
+    while Numero_b // 2 != 0:
+        Acumulador_binario = str(Numero_b % 2) + Acumulador_binario
+        Numero_b = Numero_b // 2
+    return str(Numero_b) + Acumulador_binario
 
 
 Opcion = None
-Diccionario_hexadecimal = {('1'):'1',
-                           ('2'):'2',
-                           ('3'):'3',
-                           ('4'):'4',
-                           ('5'):'5',
-                           ('6'):'6',
-                           ('7'):'7',
-                           ('8'):'8',
-                           ('9'):'9',
-                           ('10'):'A',
-                           ('11'):'B',
-                           ('12'):'C',
-                           ('13'):'D',
-                           ('14'):'E',
-                           ('15'):'F'}
 
 while Opcion != 0:
     print()
@@ -96,15 +140,18 @@ while Opcion != 0:
     elif Opcion == 1:
         Decimal = int(input("Ingrese el número en base decimal: "))
         Binario,Hexadecimal = Decimal_a_binario_y_hexadecimal(Decimal)
+        print(f"El número decimal {Decimal} es {Binario} en binario y {Hexadecimal} es hexadecimal.")
+
     elif Opcion  == 2:
         Binario = int(input("Ingrese el número en base binaria: "))
         Decimal, Hexadecimal = Binario_a_decimal_y_hexadecimal(Binario)
+        print(f"El número decimal {Binario} es {Decimal} en decimal y {Hexadecimal} es hexadecimal.")
     elif Opcion == 3:
-        Hexadecimal = int(input("Ingrese el número en base binaria: "))
-        Decimal, Binaria = Hexadecimal_a_decimal_y_binario(Hexadecimal)
+        Hexadecimal = input("Ingrese el número en base binaria: ")
+        Decimal, Binario = Hexadecimal_a_decimal_y_binario(Hexadecimal)
+        print(f"El número decimal {Hexadecimal} es {Decimal} en decimal y {Binario} binario.")
 
     else:
-        print()
         print("Opción incorrecta.") #Mensaje para opciones no válidas.
     print("______________________________________________________")
     print()
