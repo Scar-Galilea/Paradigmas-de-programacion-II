@@ -1,7 +1,7 @@
 #Galilea Peralta Contreras.
 #07 de diciembre del 2024.
 #Descripción:
-
+#Este programa permite convertir números entre las bases decimales, binarias y hexadecimales.
 """
 Instrucciones:
 Escribe un programa de nombre Ej2_conversiones_decimal_binario_hexadecimal.py que realice lo que se indica en la descripción del programa.
@@ -39,27 +39,36 @@ def Menu():
     Opcion = int(input("Ingrese la opción: "))
     return Opcion
 
+#Función para convertir de decimal a binario y hexadecimal.
 def Decimal_a_binario_y_hexadecimal(Decimal):
+    #Llama a funciones específicas para convertir decimal a binario y hexadecimal.
     Tupla_b_h = (decimal_a_binario(Decimal),decimal_a_hexadecimal(Decimal))
     return Tupla_b_h
 
+#Función para convertir de binario a decimal y hexadecimal.
 def Binario_a_decimal_y_hexadecimal(Binario):
-    Binario = str(Binario)
-    Acumulador_decimal = 0
+    Binario = str(Binario) #Convierte el número a cadena para recorrerlo fácilmente.
+    Acumulador_decimal = 0 #Inicializa el acumulador para almacenar el resultado decimal.
 
+    #Convierte de binario a decimal.
     Total = (len(Binario)) - 1
     for i in Binario:
+        #Suma el valor del dígito multiplicado por 2 elevado a su posición.
         Acumulador_decimal = (2 ** Total ) * int(i) + Acumulador_decimal
         Total -= 1
     Tupla_d_h = (Acumulador_decimal,decimal_a_hexadecimal(Acumulador_decimal))
     return Tupla_d_h
 
+#Función para convertir de hexadecimal a decimal y binario.
 def Hexadecimal_a_decimal_y_binario(Hexadecimal):
-    Hexadecimal = str(Hexadecimal)
+    Hexadecimal = str(Hexadecimal) #Convierte el número a cadena para recorrerlo.
     Acumulador_decimal = 0
     print(Hexadecimal)
+
+    # Convierte de hexadecimal a decimal.
     Total = (len(Hexadecimal)) - 1
     for i in Hexadecimal:
+        #Suma el valor del dígito multiplicado por 16 elevado a su posición.
         Acumulador_decimal = (16 ** Total) * int(Convertir_hexadecimal_a_numero(i)) + Acumulador_decimal
         Total -= 1
 
@@ -88,6 +97,7 @@ def Convertidor_hexadecimal(Numero):
 
     Numero = str(Diccionario_hexadecimal.get(Numero))
     return Numero
+#Función para convertir caracteres hexadecimales a sus valores numéricos.
 def  Convertir_hexadecimal_a_numero(Numero):
     Numero = str(Numero)
     Diccionario_hexadecimal = {('1'): '1',
@@ -110,7 +120,7 @@ def  Convertir_hexadecimal_a_numero(Numero):
     Numero = str(Diccionario_hexadecimal.get(Numero))
     return Numero
 
-
+#Función para convertir de decimal a hexadecimal.
 def decimal_a_hexadecimal(Numero_h):
     Acumulador_hexadecimal = ""
 
@@ -122,6 +132,7 @@ def decimal_a_hexadecimal(Numero_h):
     Convertidor = Convertidor_hexadecimal(Numero_h)
     return Convertidor + Acumulador_hexadecimal
 
+#Función para convertir de decimal a binario.
 def decimal_a_binario(Numero_b):
     Acumulador_binario = ""
     while Numero_b // 2 != 0:
@@ -137,16 +148,17 @@ while Opcion != 0:
     Opcion = Menu() #Muestra el menú y obtiene la opción del usuario.
     if Opcion == 0: #Salir del programa.
         print("Fin del programa.")
-    elif Opcion == 1:
+    elif Opcion == 1: #Decimal a binario y hexadecimal.
         Decimal = int(input("Ingrese el número en base decimal: "))
         Binario,Hexadecimal = Decimal_a_binario_y_hexadecimal(Decimal)
         print(f"El número decimal {Decimal} es {Binario} en binario y {Hexadecimal} es hexadecimal.")
 
-    elif Opcion  == 2:
+    elif Opcion  == 2: #Binario a decimal y hexadecimal.
         Binario = int(input("Ingrese el número en base binaria: "))
         Decimal, Hexadecimal = Binario_a_decimal_y_hexadecimal(Binario)
         print(f"El número decimal {Binario} es {Decimal} en decimal y {Hexadecimal} es hexadecimal.")
-    elif Opcion == 3:
+
+    elif Opcion == 3: #Hexadecimal a decimal y binario.
         Hexadecimal = input("Ingrese el número en base binaria: ")
         Decimal, Binario = Hexadecimal_a_decimal_y_binario(Hexadecimal)
         print(f"El número decimal {Hexadecimal} es {Decimal} en decimal y {Binario} binario.")
