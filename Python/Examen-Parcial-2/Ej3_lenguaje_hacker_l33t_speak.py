@@ -61,6 +61,7 @@ Diccionario_de_vocales = {('a'): '4',
                           ('o'): '0',
                           ('u'): '(_)'}
 
+#Diccionario para convertir tanto vocales como consonantes al lenguaje intermedio.
 Diccionario_de_completo = {('a'): '4',
                           ('b'): 'l3',
                           ('c'): '[',
@@ -88,25 +89,29 @@ Diccionario_de_completo = {('a'): '4',
                           ('y'): 'j',
                           ('z'): '2'}
 
-
+#Ciclo principal para ejecutar el programa hasta que el usuario decida salir
 while Opcion != 0:
     Opcion = Menu() #Muestra el menú y obtiene la opción del usuario.
     if Opcion == 0: #Salir del programa.
 
         print("Fin del programa.")
-    elif Opcion == 1:
+    elif Opcion == 1: #Conversión al lenguaje básico (solo vocales).
         Texto = input("Ingresa el texto a convertir a lenguaje l33t sp34k básico: ")
-        Lenguaje_basico = ""
+        Lenguaje_basico = "" #Almacena el texto convertido.
+        #Recorre cada carácter del texto ingresado.
         for t in Texto:
+            #Convierte las vocales y mantiene los caracteres no modificados.
             Lenguaje_basico =Lenguaje_basico + Diccionario_de_vocales.get((t.lower()),t)
 
         print("El es texto convertido es: ")
         print(Lenguaje_basico)
 
-    elif Opcion  == 2:
+    elif Opcion  == 2: #Conversión al lenguaje intermedio (vocales y consonantes).
         Texto = input("Ingresa el texto a convertir a lenguaje l33t sp34k básico: ")
-        Lenguaje_i = ""
+        Lenguaje_i = "" #Almacena el texto convertido.
+        #Recorre cada carácter del texto ingresado.
         for t in Texto:
+            #Convierte las letras según el diccionario y mantiene caracteres no modificados.
             Lenguaje_i = Lenguaje_i + Diccionario_de_completo.get((t.lower()),t)
         print("Él es texto convertido es: ")
         print(f"{Lenguaje_i}.")
