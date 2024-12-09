@@ -57,7 +57,6 @@ Ravenclaw - JavaScript.
 Se debe mostrar la siguiente pantalla inicial:
   ***  Ejercicio 4. Test del sombrero seleccionador de Harry Potter.  ***
 Este programa determina la casa (Gryffindor, Slytherin, Hufflepuff y Ravenclaw) a la que perteneces, de acuerdo a tus respuestas.
-
 1) Iniciar test.
 0) Salir.
 Cualquier otro caso -> Opción no válida.
