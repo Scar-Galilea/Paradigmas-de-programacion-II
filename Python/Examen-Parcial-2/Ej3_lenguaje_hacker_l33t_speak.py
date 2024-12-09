@@ -1,7 +1,9 @@
 #Galilea Peralta Contreras.
 #07 de diciembre del 2024.
 #Descripción:
-
+#Este programa convierte un texto al lenguaje hacker (l33t sp34k) en dos niveles:
+#1. Lenguaje básico: Convierte solo las vocales.
+#2. Lenguaje intermedio: Convierte tanto vocales como consonantes utilizando el alfabeto hacker.
 
 """
 Instrucciones:
@@ -52,6 +54,7 @@ def Menu():
 
 Opcion = None
 
+#Diccionario para convertir vocales al lenguaje básico (solo vocales).
 Diccionario_de_vocales = {('a'): '4',
                           ('e'): '3',
                           ('i'): '1',
@@ -92,7 +95,7 @@ while Opcion != 0:
 
         print("Fin del programa.")
     elif Opcion == 1:
-        Texto = input("Ingresa el texto a convertir a lenguanje l33t sp34k básico: ")
+        Texto = input("Ingresa el texto a convertir a lenguaje l33t sp34k básico: ")
         Lenguaje_basico = ""
         for t in Texto:
             Lenguaje_basico =Lenguaje_basico + Diccionario_de_vocales.get((t.lower()),t)
@@ -101,12 +104,12 @@ while Opcion != 0:
         print(Lenguaje_basico)
 
     elif Opcion  == 2:
-        Texto = input("Ingresa el texto a convertir a lenguanje l33t sp34k básico: ")
+        Texto = input("Ingresa el texto a convertir a lenguaje l33t sp34k básico: ")
         Lenguaje_i = ""
         for t in Texto:
             Lenguaje_i = Lenguaje_i + Diccionario_de_completo.get((t.lower()),t)
-        print("El es texto convertido es: ")
-        print(Lenguaje_i)
+        print("Él es texto convertido es: ")
+        print(f"{Lenguaje_i}.")
 
     else:
         print()
