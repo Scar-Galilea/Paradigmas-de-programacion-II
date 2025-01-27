@@ -5,8 +5,6 @@ from random import choice
 
 PRIMERO = "X"
 SEGUNDO = "0"
-NINGUNO = "Ninguno gano"
-
 
 def menu() -> int:
     print("***  Juego del gato  ***")
@@ -59,31 +57,88 @@ def mostrar_tablero(lista: list[str]):
         print(matriz[i + (i * 2)], raya_vertical, matriz[i + 1 + (i * 2)], raya_vertical, matriz[i + 2 + (i * 2)])
         print(raya_horizontal * 9)
 
-def rellenar(matriz:list[str]) -> str
+def verificar(matriz:list[str]) -> int:
+    opcion_del_jugador = input("Elija una posición: ")
+    while not opcion_del_jugador.isnumeric() or not ('0','1','3','4','5','6','7','8'):
+        print("Opción invalida")
+        opcion_del_jugador = input("Intenta nuevamente: ")
+    opcion_del_jugador = int(opcion_del_jugador)
+    while matriz[opcion_del_jugador] != ' ' :
+        print("Opción repetida.")
+        opcion_del_jugador = input("Intenta nuevamente: ")
+        while not opcion_del_jugador.isnumeric() or not ('0', '1', '3', '4', '5', '6', '7', '8'):
+            print("Opción invalida")
+            opcion_del_jugador = input("Intenta nuevamente: ")
 
+    return int(opcion_del_jugador)
 
+def comparacion(matriz: list[str])-> int | None:
+    marcadores = None
+    i = 0
+    gato = {(X, X, X): 1,
+            (O, O, O): 2}
 
+    for i in range(0, 3):
+        marcadores = gato.get((matriz[i+2*i],matriz[i+1+i*2],matriz[i+2+i*2]),None)
+        if marcadores == 1 or marcadores == 2:
+            return int(marcadores)
+        marcadores = gato.get((matriz[i + 2*i], matriz[3+i], matriz[6+i]), None)
+        if marcadores == 1 or marcadores == 2:
+            return int(marcadores)
+
+    marcadores = gato.get((matriz[i], matriz[4], matriz[8]), None)
+    if marcadores == 1 or marcadores == 2:
+        return int(marcadores)
+    marcadores = gato.get((matriz[2], matriz[4], matriz[6]), None)
+    if marcadores == 1 or marcadores == 2:
+        return int(marcadores)
 
 if __name__ == '__main__':
     matriz = []
     posiciones = []
+    lleno = 0
     opcion = None
 
     while opcion != 0:
         for i in range(0, 9):
-            matriz.append(' ')
-        for i in range(0, 9):
-            posiciones.append(str(i))
+            posiciones.append(int(i))
 
         opcion = menu()
         if opcion == 0:
             print("Fin del programa.")
         elif opcion == 1:
+            bandera = 0
             jugador, cpu = submenu()
             mostrar_tablero(posiciones)
-            eleccion_del_jugador = rellenar(matriz)
+            for i in range(0, 9):
+                matriz.append(' ')
 
-            while !=
+            while bandera == 0 or lleno == 0:
+                eleccion_del_jugador = verificar(matriz)
+                matriz = matriz[eleccion_del_jugador-1]
+                opcion_del_CPU = choice(posiciones)
+
+                print(opcion_del_CPU)
+                print(eleccion_del_jugador)
+                print()
+                while matriz[opcion_del_CPU] != ' ':
+                    opcion_del_CPU = choice(posiciones)
+
+                comparacion(matriz)
+
+                for l in matriz:
+                    if l != matriz:
+                        bandera = 0
+                        break
+                    else:
+                        bandera = 1
+                mostrar_tablero(matriz)
+
+
+
+
+
+
 
 
 
