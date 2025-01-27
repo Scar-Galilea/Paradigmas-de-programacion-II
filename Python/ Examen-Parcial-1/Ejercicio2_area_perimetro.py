@@ -1,4 +1,4 @@
-#Galilea Peralta Contreras.
+#Galilea Peralta Contreras
 #03 de noviembre de 2024.
 #Descripción:
 #Programa para calcular el área y el perímetro de un rectángulo o círculo según la opción seleccionada por el usuario.
