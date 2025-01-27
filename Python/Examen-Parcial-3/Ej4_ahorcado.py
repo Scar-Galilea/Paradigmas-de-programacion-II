@@ -1,6 +1,8 @@
 # Galilea Peralta Contreras.
 # 26 de enero del 2025.
 # Descripción: Programa para jugar al ahorcado.
+from random import choice
+
 
 def menu() -> int:
     """
@@ -21,6 +23,20 @@ def menu() -> int:
         print()
     return int(opcion)
 
+def palabras() -> str:
+    lista_de_palabras = []
+    lista_de_palabras.append("hola")
+    lista_de_palabras.append("oso")
+    lista_de_palabras.append("historia")
+    lista_de_palabras.append("filosofia")
+    lista_de_palabras.append("electronica")
+    lista_de_palabras.append("gato")
+
+    eleccion = choice(lista_de_palabras)
+    return eleccion
+
+
+
 def jugar():
     """
     Ejecuta el juego del ahorcado.
@@ -29,16 +45,17 @@ def jugar():
     lista_de_las_letras = []  #Lista que almacena las letras adivinadas correctamente.
     intentos = 0  #Contador de intentos del jugador.
     bandera = 0  #Indica si la palabra ha sido adivinada
-    palabra = input("Elige la palabra: ").lower()  #Palabra secreta a adivinar.
+    palabra = palabras().lower()  #Palabra secreta a adivinar.
     print()
     print("Comienza el juego.")
-    print(f"Tienes {len(palabra) + 2} intentos.")
+    intentos = len(palabra) + 2
+    print(f"Tienes {intentos} intentos.")
     print()
 
     for _ in range(len(palabra)):
         lista_de_las_letras.append('_')  #Inicializa la lista con guiones bajos.
-
-    while intentos <= len(palabra) + 2 and bandera == 0:
+    numero = 0
+    while (numero < intentos and bandera == 0):
         print()
         verificador = 0  #Verifica si todas las letras han sido adivinadas.
         contador = 0  #Índice para recorrer la palabra.
@@ -48,7 +65,7 @@ def jugar():
             print(lista_de_las_letras[i], end=" ")
         print()
 
-        print(f"Oportunidad {intentos + 1}")
+        print(f"Oportunidad {intentos}")
         letra = input("Escoja una letra: ").lower()  #Letra ingresada por el usuario.
 
         if len(letra) > 1:
@@ -73,7 +90,7 @@ def jugar():
                 bandera = 1
             verificador += 1
 
-        intentos += 1
+        intentos -= 1
 
     print()
     if bandera == 1:
